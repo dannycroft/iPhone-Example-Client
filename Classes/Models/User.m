@@ -130,7 +130,7 @@ static EGOHTTPRequest * _currentUserVisitedSpotsRequest = nil;
 		} else if ([request isEqual:_currentUserRecentCheckInsRequest]) {
 			NSMutableSet * someCheckIns = [NSMutableSet setWithArray:_currentUser.checkIns];
 			for (NSDictionary * dictionary in [response valueForKey:@"activity"]) {
-				if ([[dictionary valueForKey:@"type"] isEqualToString:@"checkin"]) {
+				if ([[dictionary valueForKey:@"type"] isEqual:@"checkin"]) {
 					CheckIn * checkIn = [[CheckIn alloc] initWithDictionary:dictionary];
 					[someCheckIns addObject:checkIn];
 					[checkIn release];

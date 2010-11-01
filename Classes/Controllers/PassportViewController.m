@@ -92,7 +92,7 @@ static EGOHTTPRequest * _userCheckInsRequest;
 
 - (void)updateContent {
 	nameLabel.text = self.user.name;
-	hometownLabel.text = self.user.hometown;
+	hometownLabel.text = [self.user.hometown description];
 	[imageView setImageURL:self.user.imageURL];
 }
 

@@ -153,4 +153,31 @@ static EGOHTTPRequest * _currentUserVisitedSpotsRequest = nil;
 	}
 }
 
+#pragma mark -
+#pragma mark NSCoding
+
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+	self.firstName = [coder decodeObjectForKey:@"firstName"];
+	self.lastName = [coder decodeObjectForKey:@"lastName"];
+	self.hometown = [coder decodeObjectForKey:@"hometown"];
+	self.imageURL = [coder decodeObjectForKey:@"imageURL"];
+	self.checkIns = [coder decodeObjectForKey:@"checkIns"];
+	return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [super encodeWithCoder:coder];
+	[coder encodeObject:self.firstName
+				 forKey:@"firstName"];
+	[coder encodeObject:self.lastName
+				 forKey:@"lastName"];
+	[coder encodeObject:self.hometown
+				 forKey:@"hometown"];
+	[coder encodeObject:self.imageURL
+				 forKey:@"imageURL"];
+	[coder encodeObject:self.checkIns
+				 forKey:@"checkIns"];
+}
+
 @end

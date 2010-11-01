@@ -11,7 +11,7 @@
 @class User;
 @class Spot;
 
-@interface CheckIn : AFObject {
+@interface CheckIn : AFObject <NSCoding> {
 	User * user;
 	Spot * spot;
 	

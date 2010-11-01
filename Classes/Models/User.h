@@ -15,7 +15,7 @@ static NSString * const AFCurrentUserUpdateFailureNotification = @"AFCurrentUser
 @class Spot;
 @class CheckIn;
 
-@interface User : AFObject {
+@interface User : AFObject <NSCoding> {
 	NSString * firstName;
 	NSString * lastName;
 	NSString * hometown;

@@ -9,7 +9,7 @@
 #import <Foundation/Foundation.h>
 
 
-@interface AFObject : NSObject {
+@interface AFObject : NSObject <NSCoding> {
 	NSURL * url;
 }
 

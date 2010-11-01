@@ -44,4 +44,25 @@ static ISO8601DateFormatter * _ISO8601DateFormatter;
 	[super dealloc];
 }
 
+#pragma mark -
+#pragma mark NSCoding
+
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+	self.user = [coder decodeObjectForKey:@"user"];
+	self.spot = [coder decodeObjectForKey:@"spot"];
+	self.timestamp = [coder decodeObjectForKey:@"timestamp"];
+	return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [super encodeWithCoder:coder];
+	[coder encodeObject:self.user
+				 forKey:@"user"];
+	[coder encodeObject:self.spot
+				 forKey:@"spot"];
+	[coder encodeObject:self.timestamp
+				 forKey:@"timestamp"];
+}
+
 @end

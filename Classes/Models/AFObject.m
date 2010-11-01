@@ -47,4 +47,18 @@
 	return [self isKindOfClass:[object class]] && [self hash] == [object hash];
 }
 
+#pragma mark -
+#pragma mark NSCoding
+
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [super init];
+	self.url = [coder decodeObjectForKey:@"url"];
+	return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+	[coder encodeObject:self.url
+				 forKey:@"url"];
+}
+
 @end

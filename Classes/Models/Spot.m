@@ -83,4 +83,31 @@
 	return self.name;
 }
 
+#pragma mark -
+#pragma mark NSCoding
+
+- (id)initWithCoder:(NSCoder *)coder {
+    self = [super initWithCoder:coder];
+	self.name = [coder decodeObjectForKey:@"name"];
+	self.imageURL = [coder decodeObjectForKey:@"imageURL"];
+	self.radius = [coder decodeObjectForKey:@"radius"];
+	self.location = [coder decodeObjectForKey:@"location"];
+	self.checkIns = [coder decodeObjectForKey:@"checkIns"];
+	return self;
+}
+
+- (void)encodeWithCoder:(NSCoder *)coder {
+    [super encodeWithCoder:coder];
+	[coder encodeObject:self.name
+				 forKey:@"name"];
+	[coder encodeObject:self.imageURL
+				 forKey:@"imageURL"];
+	[coder encodeObject:self.radius
+				 forKey:@"radius"];
+	[coder encodeObject:self.location
+				 forKey:@"location"];
+	[coder encodeObject:self.checkIns
+				 forKey:@"checkIns"];
+}
+
 @end

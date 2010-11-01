@@ -10,7 +10,7 @@
 #import <MapKit/MapKit.h>
 #import "AFObject.h"
 
-@interface Spot : AFObject <MKAnnotation> {
+@interface Spot : AFObject <MKAnnotation, NSCoding> {
 	NSString * name;
 	NSURL * imageURL;
 	NSString * locality;

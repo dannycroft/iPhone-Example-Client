@@ -42,7 +42,7 @@
 																							target:nil 
 																							action:@selector(dismissModalViewControllerAnimated:)] autorelease];
 
-	[webView loadHTMLString:self.detailHTML baseURL:[NSURL URLWithString:@"http://api.gowalla.com/"]];
+	[webView loadHTMLString:self.detailHTML baseURL:[NSURL URLWithString:kGowallaAPIBaseURL]];
 }
 
 - (void)viewDidUnload {

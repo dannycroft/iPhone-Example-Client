@@ -14,6 +14,7 @@
 }
 
 @property (nonatomic, retain) NSURL * url;
+@property (nonatomic, retain) NSString * path;
 @property (readonly) NSString * identifier;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary;

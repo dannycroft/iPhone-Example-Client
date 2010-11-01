@@ -11,11 +11,11 @@
 @implementation AFObject
 
 @synthesize url;
+@dynamic path;
 
 - (id)initWithDictionary:(NSDictionary *)dictionary {
 	if (self = [super init]) {
-		self.url = [NSURL URLWithString:[dictionary valueForKey:@"url"] 
-						  relativeToURL:[NSURL URLWithString:@"http://api.gowalla.com"]];
+		self.path = [dictionary valueForKey:@"url"];
 	}
 					
 	return self;
@@ -26,8 +26,17 @@
 	[super dealloc];
 }
 
-- (NSString *)identifier {
+- (void)setPath:(NSString *)relativeURLPath {
+	self.url = [NSURL URLWithString:relativeURLPath 
+					  relativeToURL:[NSURL URLWithString:kGowallaAPIBaseURL]];
+}
+
+- (NSString *)path {
 	return [self.url lastPathComponent];
+}
+
+- (NSString *)identifier {
+	return self.path;
 }
 
 - (NSUInteger)hash {

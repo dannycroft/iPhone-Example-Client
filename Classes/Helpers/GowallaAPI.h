@@ -11,13 +11,16 @@
 #import "EGOHTTPRequest.h"
 #import "EGOHTTPFormRequest.h"
 
-#define kGowallaAPIBaseURL @"http://api.gowalla.com/"
-
 @interface GowallaAPI : NSObject
 
 + (EGOHTTPRequest *)requestForPath:(NSString *)path 
 						parameters:(NSDictionary *)keyedParameters 
 						  delegate:(id)delegate 
 						  selector:(SEL)selector;
+
++ (EGOHTTPFormRequest *)formRequestForPath:(NSString *)path 
+								parameters:(NSDictionary *)keyedParameters 
+								  delegate:(id)delegate 
+								  selector:(SEL)selector;
 
 @end

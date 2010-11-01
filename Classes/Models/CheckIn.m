@@ -25,11 +25,13 @@ static ISO8601DateFormatter * _ISO8601DateFormatter;
 		self.user = [[User alloc] initWithDictionary:[dictionary valueForKey:@"user"]];
 		self.spot = [[Spot alloc] initWithDictionary:[dictionary valueForKey:@"spot"]];
 		
-		if (_ISO8601DateFormatter == nil) {
-			_ISO8601DateFormatter = [[ISO8601DateFormatter alloc] init];
+		if ([dictionary objectForKey:@"created_at"]) {
+			if (_ISO8601DateFormatter == nil) {
+				_ISO8601DateFormatter = [[ISO8601DateFormatter alloc] init];
+			}
+			
+			self.timestamp = [_ISO8601DateFormatter dateFromString:[dictionary valueForKey:@"created_at"]];
 		}
-		
-		self.timestamp = [_ISO8601DateFormatter dateFromString:[dictionary valueForKey:@"created_at"]]; 
 	}
 	
 	return self;

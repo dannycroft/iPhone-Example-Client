@@ -10,10 +10,11 @@
 #import <MapKit/MapKit.h>
 #import "AFObject.h"
 
-
 @interface Spot : AFObject <MKAnnotation> {
 	NSString * name;
 	NSURL * imageURL;
+	NSString * locality;
+	NSString * region;
 	
 	CLLocation * location;
 	NSNumber * radius;
@@ -23,6 +24,9 @@
 
 @property (nonatomic, retain) NSString * name;
 @property (nonatomic, retain) NSURL * imageURL;
+@property (nonatomic, retain) NSString * locality;
+@property (nonatomic, retain) NSString * region;
+@property (readonly) NSString * localityRegionString;
 
 @property (nonatomic, retain) CLLocation * location;
 @property (nonatomic, retain) NSNumber * radius;

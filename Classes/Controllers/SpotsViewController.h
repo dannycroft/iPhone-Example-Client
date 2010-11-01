@@ -10,12 +10,18 @@
 #import <CoreLocation/CoreLocation.h>
 
 
-@interface SpotsViewController : UITableViewController <CLLocationManagerDelegate> {
+@interface SpotsViewController : UITableViewController <CLLocationManagerDelegate, UISearchDisplayDelegate, UISearchBarDelegate> {
 	NSArray * spots;
+	NSArray * filteredSpots;
 	CLLocationManager * locationManager;
+	
+	IBOutlet UIActivityIndicatorView * loadingActivityIndicatorView;
+	IBOutlet UISearchBar * searchBar;
+	IBOutlet UIView * searchResultsLoadingTableHeaderView;
 }
 
 @property (nonatomic, retain) NSArray * spots;
+@property (nonatomic, retain) NSArray * filteredSpots;
 @property (nonatomic, retain) CLLocationManager * locationManager;
 
 @end

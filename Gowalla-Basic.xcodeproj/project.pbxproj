@@ -44,10 +44,14 @@
 		F81D48AA11DAFEF70052A291 /* CheckIn.m in Sources */ = {isa = PBXBuildFile; fileRef = F81D48A911DAFEF70052A291 /* CheckIn.m */; };
 		F81D48BE11DB02FB0052A291 /* ISO8601DateFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = F81D48BD11DB02FB0052A291 /* ISO8601DateFormatter.m */; };
 		F826BB41120B121700FA5439 /* URLParser.m in Sources */ = {isa = PBXBuildFile; fileRef = F826BB40120B121700FA5439 /* URLParser.m */; };
+		F8468D17127F264900503CA7 /* AFSpotCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F8468D16127F264900503CA7 /* AFSpotCell.m */; };
 		F84CB51111DBA498004E8367 /* NSData+Base64.m in Sources */ = {isa = PBXBuildFile; fileRef = F84CB51011DBA498004E8367 /* NSData+Base64.m */; };
 		F84CB51B11DBA50D004E8367 /* CheckInSuccessViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F84CB51911DBA50D004E8367 /* CheckInSuccessViewController.m */; };
 		F84CB58E11DBC3AC004E8367 /* AuthenticationViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F84CB58C11DBC3AC004E8367 /* AuthenticationViewController.m */; };
 		F84CB65111DBD33E004E8367 /* GowallaAPI.m in Sources */ = {isa = PBXBuildFile; fileRef = F84CB65011DBD33E004E8367 /* GowallaAPI.m */; };
+		F8539F6A127A1B7200F298C7 /* button-orange_308.png in Resources */ = {isa = PBXBuildFile; fileRef = F8539F67127A1B7200F298C7 /* button-orange_308.png */; };
+		F8539F6B127A1B7200F298C7 /* button-orange-active_308.png in Resources */ = {isa = PBXBuildFile; fileRef = F8539F68127A1B7200F298C7 /* button-orange-active_308.png */; };
+		F8539F6C127A1B7200F298C7 /* checkmark-corner_22.png in Resources */ = {isa = PBXBuildFile; fileRef = F8539F69127A1B7200F298C7 /* checkmark-corner_22.png */; };
 		F8946C4D11DCFEF500E14FCF /* PassportViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = F8946C4B11DCFEF500E14FCF /* PassportViewController.m */; };
 		F8946C5111DCFF5600E14FCF /* PassportView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8946C5011DCFF5600E14FCF /* PassportView.xib */; };
 		F8946C5411DCFF6500E14FCF /* AuthenticationView.xib in Resources */ = {isa = PBXBuildFile; fileRef = F8946C5211DCFF6500E14FCF /* AuthenticationView.xib */; };
@@ -126,6 +130,8 @@
 		F81D48BD11DB02FB0052A291 /* ISO8601DateFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ISO8601DateFormatter.m; sourceTree = "<group>"; };
 		F826BB3F120B121700FA5439 /* URLParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = URLParser.h; sourceTree = "<group>"; };
 		F826BB40120B121700FA5439 /* URLParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = URLParser.m; sourceTree = "<group>"; };
+		F8468D15127F264900503CA7 /* AFSpotCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AFSpotCell.h; sourceTree = "<group>"; };
+		F8468D16127F264900503CA7 /* AFSpotCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AFSpotCell.m; sourceTree = "<group>"; };
 		F84CB50F11DBA498004E8367 /* NSData+Base64.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSData+Base64.h"; sourceTree = "<group>"; };
 		F84CB51011DBA498004E8367 /* NSData+Base64.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSData+Base64.m"; sourceTree = "<group>"; };
 		F84CB51811DBA50D004E8367 /* CheckInSuccessViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CheckInSuccessViewController.h; sourceTree = "<group>"; };
@@ -135,6 +141,9 @@
 		F84CB62811DBD13D004E8367 /* GowallaAPIKeys.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GowallaAPIKeys.h; sourceTree = "<group>"; };
 		F84CB64F11DBD33E004E8367 /* GowallaAPI.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GowallaAPI.h; sourceTree = "<group>"; };
 		F84CB65011DBD33E004E8367 /* GowallaAPI.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GowallaAPI.m; sourceTree = "<group>"; };
+		F8539F67127A1B7200F298C7 /* button-orange_308.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-orange_308.png"; sourceTree = "<group>"; };
+		F8539F68127A1B7200F298C7 /* button-orange-active_308.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "button-orange-active_308.png"; sourceTree = "<group>"; };
+		F8539F69127A1B7200F298C7 /* checkmark-corner_22.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "checkmark-corner_22.png"; sourceTree = "<group>"; };
 		F8946C4A11DCFEF500E14FCF /* PassportViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = PassportViewController.h; sourceTree = "<group>"; };
 		F8946C4B11DCFEF500E14FCF /* PassportViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = PassportViewController.m; sourceTree = "<group>"; };
 		F8946C5011DCFF5600E14FCF /* PassportView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = PassportView.xib; path = Resources/XIB/PassportView.xib; sourceTree = SOURCE_ROOT; };
@@ -211,6 +220,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				F8539F66127A1B3700F298C7 /* Images */,
 				F81D470C11DACEBC0052A291 /* Info.plist */,
 				F81D470A11DACEAC0052A291 /* MainWindow.xib */,
 			);
@@ -272,6 +282,8 @@
 			children = (
 				F81D481C11DADCE10052A291 /* AFImageLoadingCell.h */,
 				F81D481D11DADCE10052A291 /* AFImageLoadingCell.m */,
+				F8468D15127F264900503CA7 /* AFSpotCell.h */,
+				F8468D16127F264900503CA7 /* AFSpotCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -415,6 +427,17 @@
 			path = Helpers;
 			sourceTree = "<group>";
 		};
+		F8539F66127A1B3700F298C7 /* Images */ = {
+			isa = PBXGroup;
+			children = (
+				F8539F67127A1B7200F298C7 /* button-orange_308.png */,
+				F8539F68127A1B7200F298C7 /* button-orange-active_308.png */,
+				F8539F69127A1B7200F298C7 /* checkmark-corner_22.png */,
+			);
+			name = Images;
+			path = Resources/Images;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -442,6 +465,7 @@
 			isa = PBXProject;
 			buildConfigurationList = C01FCF4E08A954540054247B /* Build configuration list for PBXProject "Gowalla-Basic" */;
 			compatibilityVersion = "Xcode 3.1";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
 				English,
@@ -470,6 +494,9 @@
 				F8946C5111DCFF5600E14FCF /* PassportView.xib in Resources */,
 				F8946C5411DCFF6500E14FCF /* AuthenticationView.xib in Resources */,
 				F8946C5511DCFF6500E14FCF /* CheckInSuccessView.xib in Resources */,
+				F8539F6A127A1B7200F298C7 /* button-orange_308.png in Resources */,
+				F8539F6B127A1B7200F298C7 /* button-orange-active_308.png in Resources */,
+				F8539F6C127A1B7200F298C7 /* checkmark-corner_22.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -515,6 +542,7 @@
 				F84CB65111DBD33E004E8367 /* GowallaAPI.m in Sources */,
 				F8946C4D11DCFEF500E14FCF /* PassportViewController.m in Sources */,
 				F826BB41120B121700FA5439 /* URLParser.m in Sources */,
+				F8468D17127F264900503CA7 /* AFSpotCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

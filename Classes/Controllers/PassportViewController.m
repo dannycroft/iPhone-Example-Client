@@ -26,6 +26,9 @@
 
 static NSDateFormatter * _dateFormatter;
 
+static EGOHTTPRequest * _userRequest;
+static EGOHTTPRequest * _userCheckInsRequest;
+
 @implementation PassportViewController
 
 @synthesize user;
@@ -39,6 +42,12 @@ static NSDateFormatter * _dateFormatter;
 	return self;
 }
 
+- (void)dealloc {
+	[user release];
+	[checkIns release];
+	[super dealloc];
+}
+
 #pragma mark -
 #pragma mark View Lifecycle
 
@@ -47,26 +56,38 @@ static NSDateFormatter * _dateFormatter;
 
     self.title = self.user.name;
 	
+	self.navigationItem.rightBarButtonItem = [[[UIBarButtonItem alloc] initWithCustomView:loadingActivityIndicatorView] autorelease];
+	
 	self.tableView.rowHeight = 60.0f;
 	
 	[self updateContent];
 	
-	[[GowallaAPI requestForPath:[self.user.url path]
-					 parameters:nil 
-					   delegate:self 
-					   selector:@selector(userRequestDidFinish:)] startAsynchronous];
+	_userRequest = [GowallaAPI requestForPath:[self.user.url path]
+								   parameters:nil 
+									 delegate:self 
+									 selector:@selector(userRequestDidFinish:)];
 	
-	[[GowallaAPI requestForPath:[[self.user.url path] stringByAppendingPathComponent:@"events"]
-					 parameters:nil 
-					   delegate:self 
-					   selector:@selector(checkInsRequestDidFinish:)] startAsynchronous];
+	_userCheckInsRequest = [GowallaAPI requestForPath:[[self.user.url path] stringByAppendingPathComponent:@"events"]
+										   parameters:nil 
+											 delegate:self 
+											 selector:@selector(checkInsRequestDidFinish:)];
+	
+	[_userRequest startAsynchronous];
+	[_userCheckInsRequest startAsynchronous];
+	[loadingActivityIndicatorView startAnimating];
 }
 
 - (void)viewDidUnload {
 	[super viewDidUnload];
 	nameLabel = nil;
 	hometownLabel = nil;
+	imageView.delegate = nil;
+	[imageView cancelImageLoad];
 	imageView = nil;
+	loadingActivityIndicatorView = nil;
+	[_userRequest cancel];
+	[_userCheckInsRequest cancel];
+	[EGOHTTPRequest cancelRequestsForDelegate:self];
 }
 
 - (void)updateContent {
@@ -79,7 +100,7 @@ static NSDateFormatter * _dateFormatter;
 #pragma mark EGOHTTPRequest
 
 - (void)userRequestDidFinish:(EGOHTTPRequest *)request {	
-	NSLog(@"requestDidFinish: %@", request.responseString);
+	NSLog(@"requestDidFinish: %@", request.responseHeaders);
 	NSDictionary * response = [NSDictionary dictionaryWithJSONData:request.responseData 
 															 error:nil];
 	
@@ -88,25 +109,36 @@ static NSDateFormatter * _dateFormatter;
 		self.checkIns = self.user.checkIns;
 		[self updateContent];
 		[self.tableView reloadData];
+	} else {
+		NSLog(@"requestDidFail: %@", request.error);
 	}
+	
+	[loadingActivityIndicatorView stopAnimating];
 }
 
 - (void)checkInsRequestDidFinish:(EGOHTTPRequest *)request {	
-	NSLog(@"requestDidFinish: %@", request.responseString);
+	NSLog(@"requestDidFinish: %@", request.responseHeaders);
 	NSDictionary * response = [NSDictionary dictionaryWithJSONData:request.responseData 
 															 error:nil];
 	
 	if (request.responseStatusCode == 200) {
-		NSMutableArray * mutableCheckins = [NSArray array];
+		NSMutableSet * mutableCheckins = [NSMutableSet setWithArray:self.checkIns];
 		for (NSDictionary * dictionary in [response valueForKey:@"activity"]) {
 			CheckIn * checkIn = [[CheckIn alloc] initWithDictionary:dictionary];
 			[mutableCheckins addObject:checkIn];
 			[checkIn release];
 		}
 		
-		self.checkIns = [NSArray arrayWithArray:mutableCheckins];
+		NSSortDescriptor * sortDescriptor = [[[NSSortDescriptor alloc] initWithKey:@"timestamp" 
+																		 ascending:NO] autorelease];
+		
+		self.checkIns = [[mutableCheckins allObjects] sortedArrayUsingDescriptors:[NSArray arrayWithObject:sortDescriptor]];
 		[self.tableView reloadData];
+	} else {
+		NSLog(@"requestDidFail: %@", request.error);
 	}
+	
+	[loadingActivityIndicatorView stopAnimating];
 }
 
 
@@ -161,6 +193,4 @@ static NSDateFormatter * _dateFormatter;
 	[self.navigationController pushViewController:viewController animated:YES];
 }
 
-
 @end
-

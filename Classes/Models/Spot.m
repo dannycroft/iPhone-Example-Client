@@ -6,6 +6,7 @@
 //  Copyright 2010 Mattt Thompson. All rights reserved.
 //
 
+#import <AddressBook/AddressBook.h>
 #import "Spot.h"
 #import "CheckIn.h"
 
@@ -15,6 +16,9 @@
 
 @synthesize name;
 @synthesize imageURL;
+@synthesize locality;
+@synthesize region;
+@dynamic localityRegionString;
 @synthesize radius;
 @synthesize location;
 @synthesize checkIns;
@@ -23,6 +27,9 @@
 	if (self = [super initWithDictionary:dictionary]) {
 		self.name = [dictionary valueForKey:@"name"];
 		self.imageURL = [NSURL URLWithString:[dictionary valueForKey:@"image_url"]];
+		self.locality = [dictionary valueForKeyPath:@"address.locality"];
+		self.region = [dictionary valueForKeyPath:@"address.region"];
+		
 		self.location = [[CLLocation alloc] initWithLatitude:[[dictionary valueForKey:@"lat"] doubleValue]
 												   longitude:[[dictionary valueForKey:@"lng"] doubleValue]];
 		self.radius = [dictionary valueForKey:@"radius_meters"];
@@ -53,6 +60,16 @@
 + (BOOL)canCheckInAtSpot:(Spot *)spot fromLocation:(CLLocation *)someLocation {
 	double r = kCheckInRadiusAllowance + [spot.radius doubleValue];
 	return r >= [someLocation distanceFromLocation:spot.location];
+}
+
+- (NSString *)localityRegionString {
+	if (self.locality && self.region) {
+		return [NSString stringWithFormat:NSLocalizedString(@"%@, %@", @"#{locality}, #{region}"), self.locality, self.region];
+	} else if (self.locality) {
+		return self.locality;
+	}
+	
+	return nil;
 }
 
 #pragma mark -

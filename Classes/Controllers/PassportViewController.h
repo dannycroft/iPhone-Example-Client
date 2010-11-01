@@ -15,6 +15,7 @@
 	User * user;
 	NSArray * checkIns;
 	
+	IBOutlet UIActivityIndicatorView * loadingActivityIndicatorView;
 	IBOutlet UILabel * nameLabel;
 	IBOutlet UILabel * hometownLabel;
 	IBOutlet EGOImageView * imageView;

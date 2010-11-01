@@ -21,9 +21,11 @@
 	CLLocationManager * locationManager;
 	
 	IBOutlet UILabel * nameLabel;
+	IBOutlet UILabel * localityRegionLabel;
 	IBOutlet EGOImageView * imageView;
 	IBOutlet UIButton * checkInButton;
 	IBOutlet MKMapView * mapView;
+	IBOutlet UIActivityIndicatorView * loadingActivityIndicatorView;
 }
 
 @property (nonatomic, retain) Spot * spot;

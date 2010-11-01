@@ -12,7 +12,9 @@
 
 @implementation AFImageLoadingCell
 
-- (id)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier {
+- (id)initWithStyle:(UITableViewCellStyle)style 
+	reuseIdentifier:(NSString *)reuseIdentifier 
+{
     if (self = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
 		imageView = [[EGOImageView alloc] initWithPlaceholderImage:[UIImage imageNamed:@"placeholder.png"]];
 		imageView.frame = CGRectMake(5.0f, 5.0f, 50.0f, 50.0f);
@@ -44,16 +46,16 @@
 
 - (void)layoutSubviews {
 	[super layoutSubviews];
-	
-	self.textLabel.frame = CGRectOffset(self.textLabel.frame, 60.0f, 0.0f);
-	self.detailTextLabel.frame = CGRectOffset(self.detailTextLabel.frame, 60.0f, 0.0f);
+		
+	self.textLabel.frame = CGRectMake(70.0f, self.textLabel.frame.origin.y, 230.0f, self.textLabel.frame.size.height);
+	self.detailTextLabel.frame = CGRectMake(70.0f, self.detailTextLabel.frame.origin.y, 230.0f, self.detailTextLabel.frame.size.height);
 }
 
 #pragma mark -
 #pragma mark EGOImageViewDelegate
 
 - (void)imageViewLoadedImage:(EGOImageView*)someImageView {
-	[imageView setNeedsDisplay];
+	[self setNeedsDisplay];
 }
 
 @end

@@ -1,13 +1,13 @@
 #  Gowalla-Basic
 ## A simple example iPhone App using the Gowalla API
 
-We created this example application as a resource to help you get up to speed with the Gowalla API on the iPhone. The app implements a basic feature set, including an authentication flow using OAuth and checking-in to nearby Spots.
+We created this example application as a resource to help you get up to speed with the Gowalla API on the iPhone. The app implements a basic feature set, including an authentication flow using OAuth, spot search, and checking-in to nearby Spots.
 
 As you might expect, the Core Location and MapKit frameworks are central to the functionality of the app. If you are just getting started with location programming on the iPhone, you might want to check out Apple's [Core Location Framework Reference](http://developer.apple.com/iphone/library/documentation/CoreLocation/Reference/CoreLocation_Framework/index.html) and [MapKit Framework Reference Guide](http://developer.apple.com/iphone/library/documentation/MapKit/Reference/MapKit_Framework_Reference/index.html) before diving in.
 
 ## Requirements
 
-Gowalla-Basic uses iOS4 as its Base SDK, which is available to ADC Members at [http://developer.apple.com/iphone/](http://developer.apple.com/iphone/). If you are developing for the iPad, or targeting a previous version of iOS, you may need to make some changes before adopting this code into your project.
+Gowalla-Basic uses iOS4 as its Base SDK, which is available to ADC Members at [http://developer.apple.com/iphone/](http://developer.apple.com/iphone/). If you are targeting a previous version of iOS, you may need to make some changes before adopting this code into your project.
 
 ## Creating Your Own Application
 

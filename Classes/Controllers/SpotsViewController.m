@@ -120,23 +120,25 @@ static EGOHTTPRequest * _spotsSearchRequest;
 			[spot release];
 		}
 		
+		NSComparisonResult (^ distanceComparator)(id, id) = ^(id a, id b) {
+			CLLocation * currentLocation = self.locationManager.location;
+			CLLocationDistance distanceToA = [currentLocation distanceFromLocation:[a location]];
+			CLLocationDistance distanceToB = [currentLocation distanceFromLocation:[b location]];
+			if (distanceToA < distanceToB) {
+				return NSOrderedAscending;
+			} else if (distanceToA > distanceToB) {
+				return NSOrderedDescending;
+			} else {
+				return NSOrderedSame;
+			}
+		};
+		
 		if ([request isEqual:_spotsSearchRequest]) {
 			self.searchDisplayController.searchResultsTableView.tableHeaderView = nil;
-			self.filteredSpots = [someSpots allObjects];
+			self.filteredSpots = [[someSpots allObjects] sortedArrayUsingComparator:distanceComparator];
 			[self.searchDisplayController.searchResultsTableView reloadData];
 		} else if ([request isEqual:_spotsRequest]) {
-			self.spots = [[someSpots allObjects] sortedArrayUsingComparator:^(id a, id b) {
-				CLLocation * currentLocation = self.locationManager.location;
-				CLLocationDistance distanceToA = [currentLocation distanceFromLocation:[a location]];
-				CLLocationDistance distanceToB = [currentLocation distanceFromLocation:[b location]];
-				if (distanceToA < distanceToB) {
-					return NSOrderedAscending;
-				} else if (distanceToA > distanceToB) {
-					return NSOrderedDescending;
-				} else {
-					return NSOrderedSame;
-				}
-			}];
+			self.spots = [[someSpots allObjects] sortedArrayUsingComparator:distanceComparator];
 			[self.tableView reloadData];
 		}
 		

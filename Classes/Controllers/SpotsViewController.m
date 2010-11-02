@@ -237,8 +237,8 @@ shouldReloadTableForSearchString:(NSString *)searchString
 	self.searchDisplayController.searchResultsTableView.tableHeaderView = searchResultsLoadingTableHeaderView;
 	
 	NSMutableDictionary * parameters = [NSMutableDictionary dictionary];
-	[parameters setObject:someSearchBar.text 
-				   forKey:@"q"];
+	[parameters setValue:[someSearchBar.text stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding]
+				  forKey:@"q"];
 	_spotsSearchRequest = [self spotsRequestForLocation:self.locationManager.location
 										 withParameters:parameters];
 	[_spotsSearchRequest startAsynchronous];
